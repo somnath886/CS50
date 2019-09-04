@@ -1,13 +1,13 @@
-#include <stdio.h>
 #include <cs50.h>
+#include <stdio.h>
 
+int get_positive_int(string prompt);
 
 int main(void)
 {
-    int h, w, k, l, m, i;
-    
-     i = get_int("Height: ");
+    int i = get_positive_int("Height: ");
 
+    int h, w, k, l, m;
     
     for (h = i*2;h > i;h--)
     {
@@ -21,7 +21,7 @@ int main(void)
         }
         for (l = i-1;l < i;l++)
         {
-            printf("  ");
+            printf(" ");
         }
         for (m = h-i;m < i+1;m++)
         {
@@ -33,4 +33,15 @@ int main(void)
         printf("\n");
     }
 
+}
+
+int get_positive_int(string prompt)
+{
+   int p;
+    do 
+    {
+        p = get_int("%s", prompt);
+    }
+    while (p < 1 || p > 8);
+    return  p;   
 }
